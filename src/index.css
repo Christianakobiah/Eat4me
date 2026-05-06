@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors from Eat4Me Logo */
+  --color-brand-orange: #ff8a00;
+  --color-brand-orange-dark: #ff4e00;
+  --color-brand-black: #000000;
+  --color-brand-gray: #f8f9fa;
+
+  /* Brand Gradient */
+  --background-image-brand-gradient: linear-gradient(
+    to right,
+    #ff8a00,
+    #ff4e00
+  );
+
+  /* Typography from Project Document */
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+/* Base styles for the "More Than a Meal" aesthetic */
+@layer base {
+  body {
+    @apply font-sans text-brand-black bg-white;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-serif;
+  }
+}
+
+@utility chef-arch {
+  clip-path: ellipse(50% 100% at 50% 100%);
+  /* Alternatively, for a clean top-rounded arch: */
+  border-radius: 999px 999px 0 0;
+}
