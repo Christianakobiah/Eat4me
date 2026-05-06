@@ -47,11 +47,11 @@ import Footer from "../components/Footer";
 //   },
 // ];
 
-import { CHEFS } from "../data/content";
+// import { CHEFS } from "../data/content";
 import SignatureGhanaianExcellence from "../components/SignatureGhanaianExcellence";
 
 const Home: React.FC = () => {
-  const heroChef = CHEFS[0];
+  // const heroChef = CHEFS[0];
 
   return (
     <main className="font-sans antialiased text-brand-black bg-white">
