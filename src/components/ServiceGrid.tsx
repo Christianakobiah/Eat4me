@@ -131,8 +131,7 @@
 // };
 
 // export default ServiceGrid;
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -179,36 +178,36 @@ const services: Service[] = [
 
 const ServiceGrid: React.FC = () => {
   const [index, setIndex] = useState(0);
+  const [cardsPerView, setCardsPerView] = useState(4);
 
-  // 👉 responsive cards per view
-  const getCardsPerView = () => {
-    if (window.innerWidth < 640) return 1; // mobile
-    if (window.innerWidth < 1024) return 2; // tablet
-    if (window.innerWidth < 1280) return 3; // small desktop
-    return 4; // large screens
-  };
+  // ✅ Handle responsiveness properly
+  useEffect(() => {
+    const updateView = () => {
+      if (window.innerWidth < 640) setCardsPerView(1);
+      else if (window.innerWidth < 1024) setCardsPerView(2);
+      else if (window.innerWidth < 1280) setCardsPerView(3);
+      else setCardsPerView(4);
+    };
 
-  const cardsPerView = getCardsPerView();
+    updateView();
+    window.addEventListener("resize", updateView);
+    return () => window.removeEventListener("resize", updateView);
+  }, []);
+
+  const maxIndex = services.length - cardsPerView;
 
   const nextSlide = () => {
-    if (index < services.length - cardsPerView) {
-      setIndex(index + 1);
-    }
+    if (index < maxIndex) setIndex(index + 1);
   };
 
   const prevSlide = () => {
-    if (index > 0) {
-      setIndex(index - 1);
-    }
+    if (index > 0) setIndex(index - 1);
   };
 
   return (
-    <section
-      id="services"
-      className="bg-white py-20 px-6 lg:px-20 overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto relative">
-        {/* Header */}
+    <section id="services" className="bg-white py-20 px-6 lg:px-20">
+      <div className="max-w-7xl mx-auto">
+        {/* HEADER */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-12 gap-6">
           <div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1a0f07]">
@@ -219,7 +218,7 @@ const ServiceGrid: React.FC = () => {
             </p>
           </div>
 
-          {/* Arrows (hidden on small screens) */}
+          {/* Arrows (desktop only) */}
           <div className="hidden md:flex gap-3">
             <button
               onClick={prevSlide}
@@ -237,8 +236,28 @@ const ServiceGrid: React.FC = () => {
           </div>
         </div>
 
-        {/* Slider */}
-        <div className="overflow-hidden">
+        {/* ✅ MOBILE = GRID (shows ALL items) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:hidden">
+          {services.map((service, i) => (
+            <div
+              key={i}
+              className="bg-white rounded-3xl shadow-sm hover:shadow-xl overflow-hidden"
+            >
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-5">
+                <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
+                <p className="text-sm text-gray-600">{service.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* ✅ DESKTOP = SLIDER */}
+        <div className="hidden md:block overflow-hidden">
           <motion.div
             animate={{ x: `-${index * (100 / cardsPerView)}%` }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
@@ -247,29 +266,23 @@ const ServiceGrid: React.FC = () => {
             {services.map((service, i) => (
               <div
                 key={i}
-                className="px-3 min-w-full sm:min-w-[50%] lg:min-w-[33.33%] xl:min-w-[25%]"
+                className="px-3 min-w-[50%] lg:min-w-[33.33%] xl:min-w-[25%]"
               >
-                <motion.div
-                  whileHover={{ y: -8 }}
-                  className="bg-white rounded-3xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group"
-                >
-                  <div className="overflow-hidden">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition duration-500"
-                    />
-                  </div>
-
-                  <div className="p-5 sm:p-6">
-                    <h3 className="text-lg sm:text-xl font-semibold text-[#1a0f07] mb-2">
+                <div className="bg-white rounded-3xl shadow-sm hover:shadow-xl overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-56 object-cover"
+                  />
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2">
                       {service.title}
                     </h3>
-                    <p className="text-[#95756A] text-sm leading-relaxed">
+                    <p className="text-sm text-gray-600">
                       {service.description}
                     </p>
                   </div>
-                </motion.div>
+                </div>
               </div>
             ))}
           </motion.div>
