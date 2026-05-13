@@ -10,8 +10,9 @@ import {
 } from "lucide-react";
 import logo from "../assets/Images/logo.jpg";
 
-const playStoreLink = "#";
-const appStoreLink = "#";
+const playStoreLink =
+  "https://play.google.com/store/apps/details?id=org.pywe.eat4me";
+const appStoreLink = "https://apps.apple.com/us/app/eat4me/id6766040974";
 
 const getStoreLink = () => {
   if (typeof navigator !== "undefined") {
@@ -53,7 +54,7 @@ const steps = [
     title: "Book Assessment",
     desc1: "Schedule a kitchen inspection at your convenience with our team.",
     desc2:
-      "This assessment checks that the kitchen meets eat4me's platform standards at the time of inspection. Chefs remain responsible for maintaining these standards in their own kitchens.",
+      "This assessment checks that the kitchen meets eat4me's platform standards at the time of inspection.",
   },
   {
     icon: ShieldCheck,
@@ -83,7 +84,7 @@ export default function ChefOnboarding() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-            Become a Chef on <span className="text-orange-600">Eat4Me</span>
+            Become a Chef on <span className="text-orange-600">eat4Me</span>
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto">
             Follow these simple steps to join the platform and start earning.

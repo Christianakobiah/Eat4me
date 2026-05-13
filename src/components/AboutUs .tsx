@@ -1,42 +1,15 @@
-// import { motion } from "framer-motion";
-// import type { JSX } from "react";
-
-// function Testimonials(): JSX.Element {
-//   const testimonials = [
-//     "Eat4Me handled my wedding catering perfectly — stress-free.",
-//     "The chef I booked was professional and friendly.",
-//     "Meals always come fresh and well prepared.",
-//   ];
-
-//   return (
-//     <section className="py-20 px-6 lg:px-20 bg-orange-50">
-//       <h2 className="text-3xl lg:text-4xl font-bold mb-12">Testimonials</h2>
-
-//       <div className="grid md:grid-cols-3 gap-8">
-//         {testimonials.map((text, index) => (
-//           <motion.blockquote
-//             key={index}
-//             initial={{ opacity: 0, y: 20 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             viewport={{ once: true }}
-//             transition={{ delay: index * 0.2 }}
-//             className="bg-white p-6 rounded-2xl shadow"
-//           >
-//             “{text}”
-//           </motion.blockquote>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// }
-
-// export default Testimonials;
-
 import { motion } from "framer-motion";
+import { useState } from "react";
+import logo2 from "../assets//Images/logo2.png";
 
 const About = () => {
+  const [showDisclaimer, setShowDisclaimer] = useState(false);
+
   return (
-    <section id="about-us" className="min-h-screen bg-gradient-to-br from-[#fff3ee] via-[#ffe1d6] to-[#ffd0bf] px-6 py-24 flex items-center">
+    <section
+      id="about-us"
+      className="min-h-screen bg-gradient-to-br from-[#fff3ee] via-[#ffe1d6] to-[#ffd0bf] px-6 py-24 flex items-center"
+    >
       <div className="max-w-6xl mx-auto relative">
         {/* Floating brand blobs */}
         <div className="absolute -top-10 -left-10 w-72 h-72 bg-[#F54900] opacity-10 rounded-full blur-3xl" />
@@ -63,25 +36,35 @@ const About = () => {
               className="space-y-8"
             >
               {/* Logo */}
-              <div className="flex items-center gap-3">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F54900] to-[#ff7a3d] flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                  E4M
+              {/* <div className="flex items-center px-2">
+                <div className="w-20 h-12 rounded-2xl bg-gradient-to-br from-[#F54900] to-[#ff7a3d] flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                  eat4Me
                 </div>
-                <h1 className="text-3xl font-bold text-gray-900">Eat4Me</h1>
+              </div> */}
+
+              {/* Logo */}
+              <div className="flex items-center">
+                <img src={logo2} alt="Eat4Me Logo" className="w-50 h-auto" />
               </div>
 
               {/* Intro */}
               <div className="space-y-4">
                 <p className="text-gray-700 leading-relaxed">
-                  At <span className="font-bold text-[#F54900]">EatMe</span>, we
-                  believe food is more than just something you eat — it’s an
-                  experience, a connection, and a story shared around every
-                  table.
+                  <span className="font-bold text-[#F54900]">eat4Me</span>{" "}
+                  exists because the best meal you've ever had was probably not
+                  in a restaurant. It was made by someone; a mother, an auntie
+                  or a neighbor who cooked it with genuine care and years of
+                  practice. We are a technology platform that gives those cooks
+                  a stage, an income, and the recognition they have always
+                  deserved, while giving you access to the most authentic food
+                  in your city. eat4me is not a delivery company. We are a
+                  community of cooks who love what they do, and people who love
+                  what they eat.
                 </p>
 
                 <p className="text-gray-600">
                   We connect you to fresh, local, and professionally prepared
-                  meals from trusted chefs and vendors across Ghana.
+                  meals from trusted chefs across Ghana.
                 </p>
               </div>
 
@@ -91,9 +74,9 @@ const About = () => {
                   Our Mission
                 </h2>
                 <p className="text-gray-700">
-                  To connect people to delicious, affordable, and high-quality
-                  meals while empowering local chefs and food vendors to grow
-                  their businesses through technology.
+                  To give Ghana's most talented home cooks an income and a
+                  platform and also give every customer access to authentic,
+                  affordable, home-quality meals through technology.
                 </p>
               </div>
 
@@ -103,10 +86,42 @@ const About = () => {
                   Our Vision
                 </h2>
                 <p className="text-gray-700">
-                  To become Africa’s leading digital food experience platform —
-                  where anyone can discover, order, and enjoy great meals
-                  anytime, anywhere.
+                  To build Africa's most trusted community of home cooks and
+                  food lovers — where authentic food culture is celebrated,
+                  fairly rewarded, and accessible to everyone.
                 </p>
+              </div>
+
+              {/* Disclaimer Toggle */}
+              <div>
+                <button
+                  onClick={() => setShowDisclaimer(!showDisclaimer)}
+                  className="text-[#F54900] font-semibold cursor-pointer hover:underline transition hover:text-blue-500"
+                >
+                  {showDisclaimer ? "Hide Disclaimer" : "View Disclaimer"}
+                </button>
+
+                {showDisclaimer && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    transition={{ duration: 0.3 }}
+                    className="mt-4 p-5 rounded-2xl bg-[#fff5f1] border border-[#ffd6c7]"
+                  >
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      eat4me is a technology marketplace platform connecting
+                      independent food entrepreneurs with customers. eat4me does
+                      not prepare, handle, or take responsibility for the
+                      production of any food listed on this platform. All cooks
+                      and chefs operate as independent contractors and are
+                      individually responsible for compliance with applicable
+                      food safety laws and regulations in their jurisdiction.
+                      eat4me's Kitchen Quality Assessment is a proprietary
+                      platform standard and does not constitute a government
+                      food safety certification or hygiene permit.
+                    </p>
+                  </motion.div>
+                )}
               </div>
             </motion.div>
 
@@ -124,7 +139,7 @@ const About = () => {
 
                 {/* Logo center */}
                 <div className="text-center text-white">
-                  <div className="text-6xl font-bold mb-2">Eat4Me</div>
+                  <div className="text-6xl font-bold mb-2">eat4Me</div>
                   <p className="text-sm opacity-90">
                     Great Food • Great Chefs • Anytime
                   </p>
@@ -133,9 +148,9 @@ const About = () => {
 
               {/* Badge */}
               <div className="absolute -bottom-6 left-6 bg-white shadow-xl rounded-2xl px-6 py-4 border border-[#ffd6c7]">
-                <p className="text-sm text-gray-500">Trusted by</p>
+                <p className="text-sm text-gray-500">Trusted by </p>
                 <p className="font-bold text-[#F54900] text-lg">
-                  Thousands of Customers
+                  our growing community of food lovers across Ghana
                 </p>
               </div>
             </motion.div>
@@ -145,7 +160,7 @@ const About = () => {
           <div className="text-center py-8 bg-gradient-to-r from-[#F54900] to-[#ff7a3d] text-white">
             <p className="text-lg font-semibold">
               Eat better. Live better.{" "}
-              <span className="font-bold">Eat4Me.</span>
+              <span className="font-bold">eat4Me.</span>
             </p>
           </div>
         </div>

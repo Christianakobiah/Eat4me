@@ -79,15 +79,15 @@ const SignatureGhanaianExcellence: React.FC = () => {
         {/* FOOD CARDS */}
         <div className="grid md:grid-cols-3 gap-10 mt-16">
           <FoodCard
-            title="Authentic Jollof"
+            title="Vegetable Rice"
             description="The gold standard of West African rice, slow-cooked to perfection."
-            image={waakye}
+            image={friedrice}
           />
 
           <FoodCard
             title="Waakye Specials"
             description="A hearty, nutritious breakfast staple featuring rice and beans."
-            image={friedrice}
+            image={waakye}
           />
 
           <FoodCard

@@ -1,53 +1,3 @@
-// import { motion } from "framer-motion";
-// import { ShieldCheck, Clock, BadgeCheck, Zap, Heart } from "lucide-react";
-
-// const values = [
-//   { title: "Reliable delivery", icon: <Clock /> },
-//   { title: "Professional chefs", icon: <BadgeCheck /> },
-//   { title: "Affordable options", icon: <Zap /> },
-//   { title: "Easy order system", icon: <Heart /> },
-//   { title: "Safe, secure, transparent", icon: <ShieldCheck /> },
-// ];
-
-// const ValueSection = () => {
-//   return (
-//     <section className="py-24 bg-white px-6">
-//       <div className="max-w-7xl mx-auto text-center">
-//         <motion.div
-//           initial={{ opacity: 0, y: 20 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           className="mb-16"
-//         >
-//           <h2 className="text-4xl md:text-5xl font-serif mb-6">
-//             Why Choose Eat4Me?
-//           </h2>
-//           <p className="text-brand-orange font-bold text-lg italic">
-//             "Because the Best Meals Come from a Chef, Not a Kitchen Line."
-//           </p>
-//         </motion.div>
-
-//         <div className="flex flex-wrap justify-center gap-8">
-//           {values.map((value, index) => (
-//             <motion.div
-//               key={index}
-//               whileHover={{ scale: 1.05 }}
-//               className="flex flex-col items-center p-6 bg-brand-gray rounded-3xl min-w-[200px]"
-//             >
-//               <div className="text-brand-orange mb-4 w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-sm">
-//                 {value.icon}
-//               </div>
-//               <p className="font-bold text-gray-800 text-sm text-center">
-//                 {value.title}
-//               </p>
-//             </motion.div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-// export default ValueSection;
-
 import { motion } from "framer-motion";
 import {
   ShieldCheck,
@@ -85,7 +35,7 @@ const values = [
   {
     title: "Safe & Transparent",
     icon: <ShieldCheck size={24} />,
-    desc: "No hidden fees, secure payments, and total transparency on every order.",
+    desc: "Clear pricing, secure payments, and no surprises on every order.",
   },
 ];
 
@@ -104,16 +54,18 @@ const ValueSection = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-5xl md:text-6xl font-serif text-gray-900 leading-tight mb-6">
-              Why Choose <span className="text-orange-600">Eat4Me?</span>
+              Why Choose <span className="text-orange-600">eat4Me?</span>
             </h2>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              We bridge the gap between talented local chefs and food lovers.
-              Our platform ensures that every bite you take is crafted with
-              intention, quality ingredients, and professional care.
+              eat4me was built on one simple belief — the best food in Ghana
+              isn't always in a restaurant. It's in someone's home nearby, made
+              by someone who has been cooking it their whole life. We built the
+              platform to connect those cooks with you.
             </p>
             <div className="inline-block border-l-4 border-orange-500 pl-6 py-2">
               <p className="text-orange-600 font-bold text-xl italic leading-snug">
-                "Because the Best Meals Come from a Chef, <br />
+                "Because the best meals come from someone who actually cares
+                what you eat, <br />
                 <span className="text-gray-400 font-medium not-italic text-lg">
                   Not a Kitchen Line."
                 </span>

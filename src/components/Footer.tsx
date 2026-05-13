@@ -44,7 +44,7 @@ const Footer = () => {
         <div>
           <h4 className="font-bold mb-6">Explore</h4>
           <ul className="space-y-4 text-gray-400 text-sm">
-            <li className="hover:text-white cursor-pointer">About Eat4Me</li>
+            <li className="hover:text-white cursor-pointer">About eat4Me</li>
             <li className="hover:text-white cursor-pointer">Vendor Sign-Up</li>
             <li className="hover:text-white cursor-pointer">FAQs</li>
           </ul>
@@ -74,7 +74,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="border-t border-white/10 pt-8 text-center text-gray-500 text-xs">
-        © 2026 Eat4Me. All rights reserved.
+        © 2026 eat4Me. All rights reserved.
       </div>
     </footer>
   );
