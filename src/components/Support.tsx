@@ -47,7 +47,7 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Lightbulb } from "lucide-react";
 
-const SuggestionBox = () => {
+const Support = () => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
@@ -80,8 +80,15 @@ const SuggestionBox = () => {
   };
 
   return (
+    <>
+    <div className="text-center pt-10">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
+              Need Support From <span className="text-[#F54900]">eat4me</span>
+            </h1>
+          </div>
+   
     <section className="py-24 px-6">
-      <div className="max-w-5xl mx-auto bg-[#FF6900] rounded-[3rem] p-12 text-white relative overflow-hidden">
+      <div id="support" className="max-w-5xl mx-auto bg-[#FF6900] rounded-[3rem] p-12 text-white relative overflow-hidden">
         <Lightbulb className="absolute -bottom-10 -right-10 w-64 h-64 opacity-10 rotate-12" />
 
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -126,7 +133,8 @@ const SuggestionBox = () => {
         </div>
       </div>
     </section>
+     </>
   );
 };
 
-export default SuggestionBox;
+export default Support;

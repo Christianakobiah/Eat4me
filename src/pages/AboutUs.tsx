@@ -1,11 +1,17 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import logo2 from "../assets//Images/logo2.png";
+// import logo2 from "../assets//Images/logo2.png";
+// import { div } from "framer-motion/client";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
-const About = () => {
+const AboutUs = () => {
   const [showDisclaimer, setShowDisclaimer] = useState(false);
 
   return (
+    <>
+    <div className="mb-30"><Navigation/></div>
+     
     <section
       id="about-us"
       className="min-h-screen bg-gradient-to-br from-[#fff3ee] via-[#ffe1d6] to-[#ffd0bf] px-6 py-24 flex items-center"
@@ -23,7 +29,7 @@ const About = () => {
           {/* About Us Title */}
           <div className="text-center pt-10">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-              About Us
+              About <span className="text-[#F54900]">eat4me</span>
             </h1>
           </div>
 
@@ -43,9 +49,9 @@ const About = () => {
               </div> */}
 
               {/* Logo */}
-              <div className="flex items-center">
+              {/* <div className="flex items-center">
                 <img src={logo2} alt="Eat4Me Logo" className="w-50 h-auto" />
-              </div>
+              </div> */}
 
               {/* Intro */}
               <div className="space-y-4">
@@ -166,7 +172,9 @@ const About = () => {
         </div>
       </div>
     </section>
+    <Footer />
+    </>
   );
 };
 
-export default About;
+export default AboutUs;
