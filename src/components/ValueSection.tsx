@@ -73,7 +73,7 @@ const ValueSection = () => {
             </div>
           </motion.div>
 
-          {/* MAIN VISUAL VIDEO WITH MUTE TOGGLE */}
+          {/* VIDEO TOGGLE */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -104,7 +104,7 @@ const ValueSection = () => {
               </button>
             </div>
 
-            {/* Decorative background element */}
+            {/*  background element */}
             <div className="absolute -bottom-6 -right-6 w-full h-full bg-orange-100 rounded-[2rem] -z-10" />
           </motion.div>
         </div>

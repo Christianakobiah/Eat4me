@@ -6,10 +6,9 @@ import Hero from "../components/Hero";
 import ChefProfile from "../components/ChefProfile";
 import ChefOnboarding from "../components/ChefOnboarding";
 import ValueSection from "../components/ValueSection";
-// import InteractionHub from "../components/InteractionHub";
 import SuggestionBox from "../components/Support";
 import ReportIssue from "../components/ReportIssue";
-// import AboutUs from "./AboutUs";
+
 
 import Footer from "../components/Footer";
 
@@ -28,11 +27,9 @@ const Home: React.FC = () => {
       <SignatureGhanaianExcellence />
       <ChefProfile />
       <ChefOnboarding />
-      {/* <ComboFeature /> */}
       <ValueSection />
       <SuggestionBox />
       <ReportIssue />
-      {/* <AboutUs /> */}
       <Footer />
     </main>
   );

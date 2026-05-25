@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-// import logo2 from "../assets//Images/logo2.png";
-// import { div } from "framer-motion/client";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
@@ -26,7 +24,6 @@ const AboutUs = () => {
           {/* Top accent strip */}
           <div className="h-2 bg-gradient-to-r from-[#F54900] via-[#ff7a3d] to-[#ffb199]" />
 
-          {/* About Us Title */}
           <div className="text-center pt-10">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
               About <span className="text-[#F54900]">eat4me</span>
@@ -41,18 +38,6 @@ const AboutUs = () => {
               transition={{ duration: 0.6 }}
               className="space-y-8"
             >
-              {/* Logo */}
-              {/* <div className="flex items-center px-2">
-                <div className="w-20 h-12 rounded-2xl bg-gradient-to-br from-[#F54900] to-[#ff7a3d] flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                  eat4Me
-                </div>
-              </div> */}
-
-              {/* Logo */}
-              {/* <div className="flex items-center">
-                <img src={logo2} alt="Eat4Me Logo" className="w-50 h-auto" />
-              </div> */}
-
               {/* Intro */}
               <div className="space-y-4">
                 <p className="text-gray-700 leading-relaxed">
