@@ -133,7 +133,7 @@ const Legals = ({ isOpen, onClose, initialDocument = 0 }: LegalsProps) => {
                     className={`py-2 px-4 rounded-full text-xs font-bold transition-all duration-200 flex items-center gap-2 whitespace-nowrap flex-shrink-0 border ${
                       active
                         ? "bg-orange-600 border-orange-600 text-white shadow-sm shadow-orange-600/20"
-                        : "bg-orange-50 border-orange-100 text-gray-600"
+                        : "bg-orange-50 border-orange-100 text-orange-600"
                     }`}
                   >
                     <span>{doc.title}</span>
