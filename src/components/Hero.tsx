@@ -1,5 +1,5 @@
 import React from "react";
-import chef3 from "../assets/Images/chef3.png";
+import chef3 from "../assets/Images/herochef.jpeg";
 
 const Hero: React.FC = () => {
   return (
