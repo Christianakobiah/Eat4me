@@ -68,7 +68,7 @@ const SignatureGhanaianExcellence: React.FC = () => {
             </div>
 
             <div className="bg-white shadow-sm rounded-2xl px-8 py-6 text-center w-40">
-              <h3 className="text-3xl font-bold text-gray-900">25</h3>
+              <h3 className="text-3xl font-bold text-gray-900">1000+</h3>
               <p className="text-xs uppercase tracking-wide text-gray-500 mt-2">
                 Regional Chefs
               </p>
