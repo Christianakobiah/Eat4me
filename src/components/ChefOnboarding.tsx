@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -120,7 +119,7 @@ const steps = [
   },
 ];
 
-export default function ChefOnboarding() {
+const ChefOnboarding = () => {
   const [showVideo, setShowVideo] = useState(false);
 
   return (
@@ -227,4 +226,6 @@ export default function ChefOnboarding() {
       </div>
     </section>
   );
-}
+};
+
+export default ChefOnboarding;

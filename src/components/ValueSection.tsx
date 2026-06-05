@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import {
-  ShieldCheck,
-  Clock,
-  BadgeCheck,
-  Zap,
-  Heart,
+  Wallet,
+  Smartphone,
+  HeartHandshake,
+  MapPinned,
+  ChefHat,
   Volume2,
   VolumeX,
 } from "lucide-react";
@@ -13,29 +13,29 @@ import videoss from "../assets/Videos/video1.mp4";
 
 const values = [
   {
-    title: "Reliable delivery",
-    icon: <Clock size={24} />,
-    desc: "Track your meal from the chef's kitchen to your doorstep in real-time.",
+    title: "Verified Home Cooks",
+    icon: <ChefHat size={30} />,
+    desc: "Every cook on eat4me has passed our Kitchen Quality Assessment before going live on the platform. Real people. Real kitchens. Real food.",
   },
   {
-    title: "Professional chefs",
-    icon: <BadgeCheck size={24} />,
-    desc: "Hand-picked culinary experts who prioritize taste and hygiene above all.",
+    title: "Food for Every Budget",
+    icon: <Wallet size={30} />,
+    desc: "From daily meals to special occasions — eat4me has a cook and a price point that works for you.",
   },
   {
-    title: "Affordable options",
-    icon: <Zap size={24} />,
-    desc: "Premium dining experiences tailored to fit your daily budget.",
+    title: "Simple to Use",
+    icon: <Smartphone size={30} />,
+    desc: "Browse cooks, pick your meal, set your delivery time, and you are done. Ordering takes less than two minutes.",
   },
   {
-    title: "Easy order system",
-    icon: <Heart size={24} />,
-    desc: "A seamless interface designed to get you from hungry to happy in seconds.",
+    title: "Clear and Secure",
+    icon: <HeartHandshake size={30} />,
+    desc: "No hidden fees. Secure payments. What you see at checkout is exactly what you pay.",
   },
   {
-    title: "Safe & Transparent",
-    icon: <ShieldCheck size={24} />,
-    desc: "Clear pricing, secure payments, and no surprises on every order.",
+    title: "Real-Time Order Tracking",
+    icon: <MapPinned size={30} />,
+    desc: "Follow your order from the moment your cook starts preparing it to the moment it arrives at your door.",
   },
 ];
 
@@ -110,7 +110,7 @@ const ValueSection = () => {
         </div>
 
         {/* VALUES GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-7">
           {values.map((value, index) => (
             <motion.div
               key={index}
@@ -118,18 +118,28 @@ const ValueSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              whileHover={{ y: -10 }}
-              className="flex flex-col p-8 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300"
+              whileHover={{
+                y: -10,
+                scale: 1.02,
+              }}
+              className="group relative overflow-hidden bg-white rounded-[2rem] border border-orange-100 shadow-[0_10px_35px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(249,115,22,0.15)] transition-all duration-500 p-8"
             >
-              <div className="text-orange-600 mb-6 w-14 h-14 flex items-center justify-center bg-orange-50 rounded-2xl">
+              {/* Background Accent */}
+              <div className="absolute top-0 left-0 h-1.5 w-full bg-gradient-to-r from-orange-500 to-orange-300" />
+
+              {/* Icon */}
+              <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 text-white mb-6 shadow-lg shadow-orange-200 group-hover:scale-110 transition-transform duration-300">
                 {value.icon}
               </div>
-              <h4 className="font-bold text-gray-900 text-lg mb-3">
+              <h4 className="font-bold text-gray-900 text-xl mb-4">
                 {value.title}
               </h4>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <p className="text-gray-600 text-sm leading-relaxed">
                 {value.desc}
               </p>
+
+              {/* Decorative Circle */}
+              <div className="absolute -right-8 -bottom-8 w-24 h-24 bg-orange-50 rounded-full group-hover:scale-125 transition-transform duration-500" />
             </motion.div>
           ))}
         </div>

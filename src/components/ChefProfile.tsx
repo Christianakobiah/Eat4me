@@ -1,8 +1,7 @@
-
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
-import chef1 from "../assets/Images/chef1.png";
+import chef1 from "../assets/Images/chef5.png";
 import chef2 from "../assets/Images/chef2.png";
 import chef3 from "../assets/Images/chef3.png";
 import chef4 from "../assets/Images/chef4.png";
@@ -22,30 +21,30 @@ const chefs: Chef[] = [
     image: chef1,
   },
   {
-    name: "Chef Sarah Jenkins",
+    name: "Chef Sarah Amoako",
     specialty: "Modern European",
     rating: 4.7,
     image: chef2,
   },
   {
-    name: "Chef Marco Rossi",
-    specialty: "Artisanal Italian",
+    name: "Chef Asantewaah",
+    specialty: "Local breakfast and Lunch",
     rating: 5.0,
     image: chef3,
   },
   {
-    name: "Chef Amara",
+    name: "Chef Prosper Ngunye",
     specialty: "Pastry & Desserts",
     rating: 4.9,
     image: chef4,
   },
 ];
 
-export default function ChefProfiling() {
+const ChefProfiling = () => {
   const [index, setIndex] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(3);
 
-  // ✅ Responsive logic
+  //  Responsive logic
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) setCardsPerView(1);
@@ -95,7 +94,7 @@ export default function ChefProfiling() {
           </div>
         </div>
 
-        {/* ✅ MOBILE = GRID */}
+        {/* MOBILE = GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:hidden">
           {chefs.map((chef, i) => (
             <div
@@ -131,7 +130,7 @@ export default function ChefProfiling() {
           ))}
         </div>
 
-        {/* ✅ DESKTOP = SLIDER */}
+        {/* DESKTOP = SLIDER */}
         <div className="hidden md:block overflow-hidden">
           <div
             className="flex transition-transform duration-500 ease-in-out"
@@ -174,4 +173,6 @@ export default function ChefProfiling() {
       </div>
     </section>
   );
-}
+};
+
+export default ChefProfiling;
